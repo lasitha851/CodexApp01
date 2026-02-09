@@ -1,0 +1,224 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f6fb;
+  --panel: #ffffff;
+  --text: #1c1f2a;
+  --muted: #697084;
+  --primary: #3b5bff;
+  --income: #1fa971;
+  --expense: #e0554f;
+  --border: #e1e4ee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 32px;
+}
+
+h1,
+h2 {
+  margin: 0 0 8px;
+}
+
+main {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0;
+}
+
+.balance-card {
+  background: var(--panel);
+  padding: 16px 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(16, 24, 40, 0.08);
+  text-align: right;
+}
+
+.balance-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: block;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.summary-card {
+  background: var(--panel);
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summary-card.income strong {
+  color: var(--income);
+}
+
+.summary-card.expense strong {
+  color: var(--expense);
+}
+
+.panel {
+  background: var(--panel);
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 20px rgba(16, 24, 40, 0.05);
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid rgba(59, 91, 255, 0.2);
+  border-color: var(--primary);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.form-error {
+  color: var(--expense);
+  margin: 8px 0 0;
+  min-height: 1.2em;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.amount-col {
+  text-align: right;
+}
+
+.amount {
+  text-align: right;
+  font-weight: 600;
+}
+
+.amount.income {
+  color: var(--income);
+}
+
+.amount.expense {
+  color: var(--expense);
+}
+
+.actions-col {
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.actions button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.empty-state {
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 20px;
+  }
+
+  .app-header {
+    flex-direction: column;
+  }
+
+  .balance-card {
+    width: 100%;
+    text-align: left;
+  }
+}
